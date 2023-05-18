@@ -23,7 +23,7 @@ function App() {
     // when the component is mounted, the alert is displayed for 3 seconds
     setTimeout(() => {
       dispatch({ type: "TOGGLE_ADD_MODAL_REMOVE" })
-    }, 5000);
+    }, 3000);
   }, [added,]);
   
   return (

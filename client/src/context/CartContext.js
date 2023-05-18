@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 
 const INITIAL_STATE = {
-  added: true,
+  added: false,
   hidden: true,  
   menu: true,
   search: true,

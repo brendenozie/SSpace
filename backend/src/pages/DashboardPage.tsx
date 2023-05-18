@@ -65,8 +65,8 @@ const DashboardPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/getcount`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/getcount`)
+      .then((res) => res.data)
       .then(({data}) => {
         setTotalPrice(data[0].num);
       });
@@ -74,8 +74,8 @@ const DashboardPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/dailyaverage`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/dailyaverage`)
+      .then((res) => res.data)
       .then(({data}) => {
         setTotalOrderCount(data[0].quantity);
       });
@@ -83,8 +83,8 @@ const DashboardPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/usercount`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/usercount`)
+      .then((res) => res.data)
       .then(({data}) => {
         setUserCount(data);
       });
@@ -92,8 +92,8 @@ const DashboardPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/productcount`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/productcount`)
+      .then((res) => res.data)
       .then(({data}) => {
         setProductCount(data);
       });

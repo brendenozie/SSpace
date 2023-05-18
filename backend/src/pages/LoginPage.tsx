@@ -21,9 +21,10 @@ const LoginPage = () => {
     e.preventDefault();
     // performUserAction({ type: "LOGIN_START" });
     try {
-      const res = await axiosInstance.post("/auth/login", {email:email,password: password});;
+      const res = await axiosInstance.post("/auth/login", {email:email,password: password});
       // performUserAction({ type: "LOGIN_SUCCESS", payload: res.data.details });
       if(res.data.isAdmin){
+              
               setAuthDetails({user: res.data.details,
                               loading: false,
                               error: {},

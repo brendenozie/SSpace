@@ -84,7 +84,7 @@ const defaultAuthContext: AuthContextType = {
               loading: false,
               error: {},
             },
-            setAuthDetails: (user) => {localStorage.setItem("backuser", JSON.stringify(user))},
+            setAuthDetails: (user) => {  localStorage.setItem("backuser", JSON.stringify(user))},
 };
 
 export const AuthContext = React.createContext<AuthContextType>(defaultAuthContext);

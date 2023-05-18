@@ -1,12 +1,7 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContentBox from "../components/contents/ContentBox";
 import ProductDisplaySection from "../components/productDisplaySection/ProductDisplaySection";
-import LoadingIndicator from "../components/LoadingIndicator";
 import PageWrapper from "../components/PageWrapper";
-import SortByTag from "../components/SortByTag";
-import configs from "../configs.json";
-import MoneyIcon from "../assets/images/money.svg";
-import MoneyReceivedIcon from "../assets/images/money-received.svg";
 import Button from "../components/Button";
 import Dropdown from '../components/productcategorydropdown/ProductCategoryDropDown';
 import Dropsubdown from '../components/productsubcategorydropdown/ProductSubCategoryDropDown';
@@ -71,9 +66,10 @@ const ProductEditPage= () => {
 
   // Fetch ordered products
   useEffect(() => {
-    axiosInstance.get(`/products/find/${productId}`)
-      .then((res) => res)
+    axiosInstance.get(`products/find/${productId}`)
+      .then((res) => res.data)
       .then(({ data }) => {
+        
         setInfo(data[0]);
         if (data[0].pImage.length > 0 ) {
            
@@ -101,7 +97,7 @@ const ProductEditPage= () => {
     if (img.status === 'uploaded'){
         await axios({
           method: "post",
-          url: `/products/delproduct`,
+          url: `${process.env.REACT_APP_API_URL}products/delproduct`,
           data: {image:img.publicId},
           headers: { "Content-Type": "application/json" },
         })
@@ -125,7 +121,7 @@ const ProductEditPage= () => {
           if(info._id){
             await axios({
               method: "put",
-              url: `/products/${info._id}`,
+              url: `${process.env.REACT_APP_API_URL}products/${info._id}`,
               data: formDataProfl,
               headers: { "Content-Type": "multipart/form-data" },
             })
@@ -133,7 +129,7 @@ const ProductEditPage= () => {
               console.log(res);
             });
           }else{
-            await axios.post("/products", formDataProfl)
+            await axios.post(`${process.env.REACT_APP_API_URL}products`, formDataProfl)
               .then(res => {
                 console.log(res);
               });
@@ -240,7 +236,7 @@ const ProductEditPage= () => {
       if(info._id){
         await axios({
           method: "put",
-          url: `/products/${info._id}`,
+          url: `${process.env.REACT_APP_API_URL}products/${info._id}`,
           data: formDataProfl,
           headers: { "Content-Type": "multipart/form-data" },
         })
@@ -248,7 +244,7 @@ const ProductEditPage= () => {
           console.log(res);
         });
       }else{
-        await axios.post("/products", formDataProfl)
+        await axios.post(`${process.env.REACT_APP_API_URL}products`, formDataProfl)
           .then(res => {
             console.log(res);
           });

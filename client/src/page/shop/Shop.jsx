@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { PaginationContext } from "../../context/PaginationContext";
 import  Pagination  from "../../components/Pagination/Pagination";
+import axios from "axios";
 
 const Shop = () => {    
 
@@ -23,6 +24,10 @@ const Shop = () => {
 
     const mounted = useRef(true);
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
     const handleChange = (e) => {
         if(e.target.id === "viewProduct"){
             setPageViewSize(e.target.value);
@@ -31,11 +36,13 @@ const Shop = () => {
 
     useEffect(() => {
         mounted.current = true;
-        fetch(`/products?pageNumber=${currentPage}&pageViewSize=${pageViewSize}`)
+        axiosInstance.get(`products?pageNumber=${currentPage}&pageViewSize=${pageViewSize}`)
         .then(async (res) => {
             if(mounted.current){
 
-              let prds = await res.json();
+              let prds = res.data;
+
+              console.log(prds);
               
               setProducts(prds.products);
             //   setCurrentPge(prds.page);
