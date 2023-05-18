@@ -1,0 +1,100 @@
+.cart-preview {
+  position: fixed;
+  height: 100vh;
+  width: 34vw;
+  right: 0;
+  top: 0;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-left: 1px solid #FFC107;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview {
+    width: 80vw;
+    z-index: 500;
+    background-color: white;
+    width: 100%;
+  }
+}
+.cart-preview__block--top {
+  display: flex;
+  margin: 5vh 1vw 1vh 1vw;
+  align-items: center;
+  padding: 0 2rem;
+}
+.cart-preview__block--top .cart-title {
+  font-size: 1.8vw;
+  font-family: "cormorant", sans-serif;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview__block--top .cart-title {
+    font-size: 5.8vw;
+  }
+}
+.cart-preview__block--top .btn--close {
+  font-size: 1.6vw;
+  margin-left: auto;
+  cursor: pointer;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview__block--top .btn--close {
+    font-size: 6.6vw;
+  }
+}
+.cart-preview__block--bottom {
+  position: relative;
+  margin: 6vh 0;
+  padding: 0 2vw;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview__block--bottom {
+    margin: 1vh 0;
+  }
+}
+.cart-preview__block--bottom .promo-text {
+  text-align: center;
+  font-size: 1.1vw;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview__block--bottom .promo-text {
+    font-size: 3.2vw;
+    padding: 0 2vw;
+  }
+}
+.cart-preview__block--bottom button {
+  position: absolute;
+  left: 25%;
+  margin: 2vh auto 0 auto;
+  font-size: 0.8vw;
+  background-color: #6c4f23;
+  color: white;
+  width: 50%;
+  height: 3.2vw;
+  border: none;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview__block--bottom button {
+    font-size: 2.2vw;
+    height: 7.2vw;
+  }
+}
+.cart-preview .cart-items {
+  min-height: 2.4rem;
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  max-height: 60vh;
+  margin: 1vh 0;
+  overflow-y: scroll;
+}
+.cart-preview .cart-items .empty-message {
+  margin: 20vh auto;
+  font-size: 1.6vw;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-preview .cart-items .empty-message {
+    font-size: 4.6vw;
+  }
+}

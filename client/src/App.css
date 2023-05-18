@@ -1,0 +1,43 @@
+.mobile-nav {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em 2em;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  display: none; }
+  @media only screen and (max-width: 767px) {
+    .mobile-nav {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
+  .mobile-nav .amado-navbar-brand {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 70px;
+    flex: 0 0 70px;
+    max-width: 70px; }
+    .mobile-nav .amado-navbar-brand a {
+      display: block;
+      max-width: 70px; }
+  .mobile-nav .amado-navbar-toggler {
+    cursor: pointer; }
+    .mobile-nav .amado-navbar-toggler span {
+      width: 28px;
+      height: 3px;
+      background-color: #fbb710;
+      display: block;
+      margin-bottom: 5px;
+      border-radius: 2px; }
+      .mobile-nav .amado-navbar-toggler span:last-child {
+        margin-bottom: 0; }

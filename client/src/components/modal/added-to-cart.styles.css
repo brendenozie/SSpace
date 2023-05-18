@@ -1,0 +1,24 @@
+
+.modal {
+  width: 200px;
+  background-color: #6c4f23;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  left: 30%;
+  padding: 10px;
+  opacity: 1;
+}
+.modal__svg {
+  width: 20%;
+  height: auto;
+  margin-right: 0.6vw;
+}
+.modal__text {
+  font-size: 18px;
+  color: white;
+}

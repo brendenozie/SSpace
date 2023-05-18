@@ -1,0 +1,81 @@
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #e8e8e8;
+  margin: 1rem 3rem;
+}
+.cart-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.cart-item img {
+  width: 8.4vw;
+  height: 8.4vw;
+  display: inline-block;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item img {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+.cart-item .item-details {
+  align-items: center;
+  width: 100%;
+  padding: 1vw;
+}
+.cart-item .item-details__block {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-item .item-name {
+  font-size: 1.6vw;
+  font-family: "Cormorant", sans-serif;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item .item-name {
+    font-size: 4.6vw;
+  }
+}
+.cart-item .item-category {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 0.6vw;
+  margin: 1vw 0;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item .item-category {
+    font-size: 1.8vw;
+  }
+}
+.cart-item .item-price {
+  height: 1.2rem;
+  line-height: 2;
+  font-size: 1vw;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item .item-price {
+    font-size: 3.4vw;
+  }
+}
+.cart-item .item-quantity {
+  font-size: 1vw;
+  line-height: 2.2;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item .item-quantity {
+    font-size: 2.6vw;
+  }
+}
+.cart-item .btn-remove {
+  cursor: pointer;
+  line-height: 3.2;
+  font-size: 0.8vw;
+  position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .cart-item .btn-remove {
+    line-height: 2.2;
+    font-size: 2.8vw;
+  }
+}

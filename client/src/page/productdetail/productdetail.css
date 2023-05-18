@@ -1,0 +1,179 @@
+/* :: 7.0 Popular Products Area CSS */
+.single-product-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px;
+  overflow: hidden;
+  background-color: #ffffff; }
+  .single-product-wrapper .product-img {
+    position: relative;
+    z-index: 1;
+    overflow: hidden; }
+    
+    .single-product-wrapper .product-img img {      
+      min-height: 250px;
+      width: 100%;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms; }
+    .single-product-wrapper .product-img .hover-img {      
+      min-height: 250px;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden; }
+  .single-product-wrapper .product-description {
+    position: relative;
+    z-index: 1;
+    margin-top: 25px; }
+    .single-product-wrapper .product-description .product-meta-data .line {
+      width: 80px;
+      height: 3px;
+      background-color: #fbb710;
+      margin-bottom: 15px;
+      display: block; }
+    .single-product-wrapper .product-description .product-meta-data .product-price {
+      line-height: 1;
+      color: #fbb710;
+      font-size: 24px;
+      margin-bottom: 10px; }
+    .single-product-wrapper .product-description .product-meta-data a {
+      display: block; }
+      .single-product-wrapper .product-description .product-meta-data a h6 {
+        margin-bottom: 0; }
+    .single-product-wrapper .product-description .ratings-cart .ratings i {
+      font-size: 10px;
+      color: #fbb710; }
+    .single-product-wrapper .product-description .ratings-cart .cart {
+      display: block; }
+  .single-product-wrapper:hover .product-img .hover-img {
+    opacity: 1;
+    visibility: visible; }
+  .single-product-wrapper:hover .product-img .product-favourite a {
+    opacity: 1;
+    visibility: visible; }
+
+
+    .product-topbar {
+      position: relative;
+      z-index: 100;
+      margin-bottom: 40px; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .product-topbar .total-products {
+          margin-bottom: 30px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .product-topbar .total-products {
+          margin-bottom: 30px; } }
+      @media only screen and (max-width: 767px) {
+        .product-topbar .total-products {
+          margin-bottom: 30px; } }
+      .product-topbar .total-products p {
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #242424;
+        text-transform: uppercase; }
+      .product-topbar .total-products .view a {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 40px;
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        background-color: #131212;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        line-height: 44px; }
+        .product-topbar .total-products .view a .active {
+          background-color: #fbb710; }
+      .product-topbar .product-sorting p {
+        margin-bottom: 0;
+        font-size: 14px;
+        height: 40px;
+        background-color: #f5f7fa;
+        line-height: 40px;
+        color: #959595;
+        padding-left: 15px; }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .product-topbar .product-sorting p {
+            font-size: 12px; } }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          .product-topbar .product-sorting p {
+            font-size: 12px; } }
+        @media only screen and (max-width: 767px) {
+          .product-topbar .product-sorting p {
+            font-size: 12px; } }
+      .product-topbar .product-sorting form select {
+        background-color: #f5f7fa;
+        border: none;
+        height: 40px;
+        min-width: 80px; }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          .product-topbar .product-sorting form select {
+            min-width: 60px; } }
+        .product-topbar .product-sorting form select option {
+          font-size: 12px;
+          font-weight: 400;
+          color: #242424;
+          text-transform: uppercase;
+          background-color: #f5f7fa; }
+      .product-topbar .nice-select {
+        border: none;
+        font-size: 14px;
+        font-weight: 400;
+        height: 40px;
+        padding-left: 0;
+        line-height: 40px;
+        margin: 0;
+        background-color: #f5f7fa;
+        border-radius: 0;
+        text-align: center !important;
+        min-width: 100px; }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          .product-topbar .nice-select {
+            min-width: 60px;
+            font-size: 12px; } }
+        @media only screen and (max-width: 767px) {
+          .product-topbar .nice-select {
+            min-width: 60px;
+            font-size: 12px; } }
+        .product-topbar .nice-select .list {
+          background-color: #f6f6f6;
+          border-radius: 0;
+          border: none; }
+          .product-topbar .nice-select .list .option.selected {
+            color: #fbb710; }
+    
+
+            .pagination {
+              position: relative;
+              z-index: 1; }
+              .pagination .page-item .page-link {
+                width: 40px;
+                height: 40px;
+                border: none;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 40px;
+                padding: 0;
+                text-align: center;
+                color: #242424; }
+                .pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {
+                  color: #fff;
+                  box-shadow: none;
+                  background-color: #fbb710; }
+              .pagination .page-item.active .page-link {
+                color: #fff;
+                box-shadow: none;
+                background-color: #fbb710; }
+              .pagination .page-item:first-child .page-link {
+                margin-left: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0; }
+              .pagination .page-item:last-child .page-link {
+                margin-left: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0; }

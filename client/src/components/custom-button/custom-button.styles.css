@@ -1,0 +1,34 @@
+
+.custom-button {
+  outline: none;
+  height: 4vw;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  margin-bottom: 1vw;
+}
+  
+.custom-button:hover {
+    background-color: white;
+    color: black;
+  }
+
+.custom-button .google-sign-in {
+  margin: 1vw 0 0 0;
+  color: black;
+}
+
+.google-sign-in .container img {  
+    height: 2vw;
+    width: 2.2rem;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+.google-sign-in.btn-txt {
+    vertical-align: middle;
+  }
+  
+

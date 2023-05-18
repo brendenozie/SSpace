@@ -1,0 +1,20 @@
+/* :: 5.0 Welcome Area CSS */
+.main-content-wrapper {
+    position: relative;
+    z-index: 1;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; 
+    font-family: cursive;
+}
+
+@media only screen and (max-width: 767px) {
+  .main-content-wrapper {
+    margin-top: 70px;
+    z-index: 100; 
+  } 
+}
+    
+    
+    
