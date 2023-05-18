@@ -74,9 +74,9 @@ app.use("/api/auth", authRoute);
 //   );
 // } else {
 //   // Default Route
-//   app.get("/api", (req, res) => {
-//     res.status(201).json({ success: true, message: "Welcome Savannah Space Shop APP" });
-//   });
+  app.get("/api", (req, res) => {
+    res.status(201).json({ success: true, message: "Welcome Savannah Space Shop APP" });
+  });
 // }
 
 // Error Handling Middleware
