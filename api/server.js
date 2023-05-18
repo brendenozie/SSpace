@@ -83,7 +83,7 @@ app.use("/api/auth", authRoute);
 app.use(errorHandler);
 app.use(notFound);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8800;
 
 app.listen(PORT, () => {
   // connect();
