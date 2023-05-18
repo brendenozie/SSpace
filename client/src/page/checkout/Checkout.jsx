@@ -16,6 +16,9 @@ const Checkout = () => {
     
     const [credentials, setCredentials] = useState({});
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
 
     const handleChange = (e) => {
 
@@ -73,7 +76,7 @@ const Checkout = () => {
                 
                 order.shippingAddress = credentials;
                 if(order.shippingAddress.city && order.shippingAddress.address){
-                    const res = await axios.post("/orders", order);
+                    const res = await axiosInstance.post("/orders", order);
 
                     if(res.data){
                         dispatch({ type: "CLEAR_ALL_ITEMS_FROM_CART" });
@@ -90,7 +93,7 @@ const Checkout = () => {
 
                 order.paymentMethod = "Cash At Store";
                                                                 
-                const res = await axios.post("/orders", order);
+                const res = await axiosInstance.post("/orders", order);
                 if(res.data){
                     dispatch({ type: "CLEAR_ALL_ITEMS_FROM_CART" });
                     window.location ="/completion";

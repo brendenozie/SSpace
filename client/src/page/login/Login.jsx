@@ -18,6 +18,10 @@ const Login = () => {
         password: undefined,
       });
     
+      const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
       const { loading, error, performUserAction } = useContext(AuthContext);
     
       const navigate = useNavigate()
@@ -34,7 +38,7 @@ const Login = () => {
         e.preventDefault();
         performUserAction({ type: "LOGIN_START" });
         try {
-          const res = await axios.post("/auth/login", credentials);
+          const res = await axiosInstance.post("/auth/login", credentials);
           performUserAction({ type: "LOGIN_SUCCESS", payload: res.data.details });
           navigate("/")
         } catch (err) {

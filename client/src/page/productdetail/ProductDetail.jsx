@@ -12,10 +12,14 @@ const ProductDetail = () => {
 
     const { cart,dispatch } = useContext(CartContext);
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
     useEffect(() => {
           async function fetchData() {
             // You can await here
-                const res = (await axios.get("/products/find/"+prdid)).data;
+                const res = (await axiosInstance.get("/products/find/"+prdid)).data;
             
                 const data1 = res.data[0];
                 const prd =cart.items.find( (cartItem) => cartItem._id === data1._id );

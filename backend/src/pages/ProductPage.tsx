@@ -4,6 +4,7 @@ import LoadingIndicator from "../components/LoadingIndicator";
 import PageWrapper from "../components/PageWrapper";
 import SortByTag from "../components/SortByTag";
 import configs from "../configs.json";
+import axios from "axios";
 
 const Product = React.lazy(() => import("../components/products/Product"));
 
@@ -47,12 +48,15 @@ const ProductPage: React.FC = () => {
 
   // const [salad, setSalad] = useReducer(reducer, []);
   const [productList, setProductList] = useState<ProductType[]>([]);
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
 
   // Fetch products from server
   useEffect(() => {
-    fetch(`/products?pageNumber=1&pageViewSize=96`)
+    axiosInstance.get(`/products?pageNumber=1&pageViewSize=96`)
       .then(async (res) => {
-          const prds = await res.json();
+          const prds = await res.data;
           setProductList(prds.products);
           });
       }, []);

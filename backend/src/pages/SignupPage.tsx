@@ -11,6 +11,9 @@ const SignupPage = () => {
   const [email, setEmail] = useState<string >("");
   const [phone, setPhone] = useState<string >("");
   const [password, setPassword] = useState<string>("");
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
 
   const { authDetails, setAuthDetails } = useContext(AuthContext);
 
@@ -20,7 +23,7 @@ const SignupPage = () => {
     e.preventDefault();
     // performUserAction({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/register", {email:email,
+      const res = await axiosInstance.post("/auth/register", {email:email,
                                                       password: password,
                                                       username: username,
                                                       phone: phone,

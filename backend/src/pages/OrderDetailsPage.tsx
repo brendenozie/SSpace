@@ -5,6 +5,7 @@ import PageWrapper from "../components/PageWrapper";
 import LoadingIndicator from "../components/LoadingIndicator";
 import OrderedItemsPreview from "../components/products/OrderedItemsPreview";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 
 interface OrderedProductType {
@@ -38,6 +39,10 @@ const OrderDetailsPage: React.FC = () => {
 
   const { productId } = useParams();
 
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
+
   useEffect(() => {
     //   Get order id from location.pathname & convert to number
     setOrderedProductId(Number(window.location.pathname.split("/")[2]));
@@ -47,8 +52,8 @@ const OrderDetailsPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/${productId}`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/${productId}`)
+      .then((res) => res.data)
       .then(({ order }) => {
         setOrderedProductList(order);
       });

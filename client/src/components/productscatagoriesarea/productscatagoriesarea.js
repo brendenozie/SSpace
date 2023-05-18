@@ -3,6 +3,7 @@ import './productscatagoriesarea.css';
 import Product from'../product/product';
 import { PaginationContext } from "../../context/PaginationContext";
 import LoadingIndicator from "../LoadingIndicator.tsx";
+import axios from "axios";
 
 const Masonry  = React.lazy(
   () => import('../masonry/masonry'));
@@ -21,6 +22,10 @@ const ProductsCategoryArea = () => {
 
   const [totalProductCount, setTotalProductCount] = useState(0);
 
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
+
   const mounted = useRef(true);
 
   const handleChange = (e) => {
@@ -36,11 +41,11 @@ const ProductsCategoryArea = () => {
 
   useEffect(() => {
     mounted.current = true;
-    fetch(`/products?pageNumber=${currntPage}&pageViewSize=${pageViewSize}`)
+    axiosInstance.get(`/products?pageNumber=${currntPage}&pageViewSize=${pageViewSize}`)
     .then(async (res) => {
         if(mounted.current){
 
-          let prds = await res.json();
+          let prds = await res.data;
           
           setProducts(prds.products);
           setCurrentPage(prds.page);

@@ -4,6 +4,7 @@ import ContentBox from "../components/contents/ContentBox";
 import PageWrapper from "../components/PageWrapper";
 import SortByTag from "../components/SortByTag";
 import { SortListContext } from "../contexts/sortedOrderContext";
+import axios from "axios";
 
 const OrderedProductPreview = React.lazy(
   () => import("../components/products/OrderedProductPreview")
@@ -47,10 +48,14 @@ const ManageOrderPage: React.FC = () => {
     setActiveTab(theTab);
   }
 
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
+
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/statsorder?status=${activeTab.toLowerCase()}`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/statsorder?status=${activeTab.toLowerCase()}`)
+      .then((res) => res.data)
       .then(({ order }) => {
         steOrderedProductList(order);
       });

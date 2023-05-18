@@ -12,13 +12,16 @@ const LoginPage = () => {
 
   const { authDetails, setAuthDetails } = useContext(AuthContext);
 
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
   const navigate = useNavigate()
 
   const handleClick = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // performUserAction({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", {email:email,password: password});;
+      const res = await axiosInstance.post("/auth/login", {email:email,password: password});;
       // performUserAction({ type: "LOGIN_SUCCESS", payload: res.data.details });
       if(res.data.isAdmin){
               setAuthDetails({user: res.data.details,

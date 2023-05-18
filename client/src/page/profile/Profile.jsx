@@ -33,13 +33,17 @@ const Profile = () => {
 
     const navigate = useNavigate()
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
     useEffect(() => {
         mounted.current = true;
-        fetch(`/orders/myorders?pageNumber=${currentPge}&pageViewSize=${pageViewSize}&user=${user._id}`)
+        axiosInstance.get(`/orders/myorders?pageNumber=${currentPge}&pageViewSize=${pageViewSize}&user=${user._id}`)
         .then(async (res) => {
             if(mounted.current){
 
-              let prds = await res.json();
+              let prds = await res.data;
               
               setOrders(prds.orders);
               setCurrentPge(prds.page);
@@ -76,7 +80,7 @@ const Profile = () => {
             favorites:[],
             img: 'https://images.unsplash.com/photo-1533003505519-6a9b92ed4911?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2l0eSxuaWdodHx8fHx8fDE2NDI3NTE4MDA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080',
             };
-        const res = await axios.post("/auth/register", newUser);
+        const res = await axiosInstance.post("/auth/register", newUser);
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
         navigate("/")
         } catch (err) {

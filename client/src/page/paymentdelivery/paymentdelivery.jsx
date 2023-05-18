@@ -20,6 +20,10 @@ const formatPhoneNumber = (phoneNumber) => {
 
 const Paymentdelivery = () => {
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
     const { cart,dispatch } = useContext(CartContext);
 
     const { user } = useContext(AuthContext);
@@ -85,7 +89,7 @@ const Paymentdelivery = () => {
                 
                 order.shippingAddress = credentials;
                 if(order.shippingAddress.city && order.shippingAddress.address && parseFloat(order.shippingPrice.deliveryFee) > 0.00){
-                    const res = await axios.post("/orders", order);
+                    const res = await axiosInstance.post("/orders", order);
 
                     if(res.data){
                         dispatch({ type: "CLEAR_ALL_ITEMS_FROM_CART" });
@@ -103,7 +107,7 @@ const Paymentdelivery = () => {
                 
                 order.shippingAddress = credentials;
                 if(order.shippingAddress.city && order.shippingAddress.address && parseFloat(order.shippingPrice.deliveryFee) > 0.00){
-                    const res = await axios.post("/orders", order);
+                    const res = await axiosInstance.post("/orders", order);
 
                     if(res.data){
                         dispatch({ type: "credit card" });
@@ -119,7 +123,7 @@ const Paymentdelivery = () => {
                 
                 order.shippingAddress = credentials;
                 if(order.shippingAddress.city && order.shippingAddress.address && parseFloat(order.shippingPrice) > 0.00){
-                    const res = await axios.post("/orders", order);
+                    const res = await axiosInstance.post("/orders", order);
 
                     if(res.data){
                         dispatch({ type: "CLEAR_ALL_ITEMS_FROM_CART" });

@@ -16,6 +16,10 @@ const Register = () => {
 
     const navigate = useNavigate()
 
+    const axiosInstance = axios.create({
+        baseURL : process.env.REACT_APP_API_URL,
+     });
+
     const handleChange = (e) => {
         if (e.target.type === 'checkbox') {
             setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.checked }));
@@ -37,7 +41,7 @@ const Register = () => {
             favorites:[],
             img: 'https://images.unsplash.com/photo-1533003505519-6a9b92ed4911?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2l0eSxuaWdodHx8fHx8fDE2NDI3NTE4MDA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080',
             };
-        const res = await axios.post("/auth/register", newUser);
+        const res = await axiosInstance.post("/auth/register", newUser);
         performUserAction({ type: "LOGIN_SUCCESS", payload: res.data.details });
         navigate("/")
         } catch (err) {

@@ -65,10 +65,14 @@ const ProductEditPage= () => {
   const [subcat, setSubcat] = useState([]);
   const {productId} = useParams();
 
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
+
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/products/find/${productId}`)
-      .then((res) => res.json())
+    axiosInstance.get(`/products/find/${productId}`)
+      .then((res) => res)
       .then(({ data }) => {
         setInfo(data[0]);
         if (data[0].pImage.length > 0 ) {

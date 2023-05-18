@@ -8,6 +8,7 @@ import configs from "../configs.json";
 import MoneyIcon from "../assets/images/money.svg";
 import MoneyReceivedIcon from "../assets/images/money-received.svg";
 import Button from "../components/Button";
+import axios from "axios";
 
 const TransactionsProductPreview = React.lazy(
   () => import("../components/products/TransactionsProductPreview")
@@ -22,6 +23,10 @@ interface TransactionsTypes {
   productId: number;
 }
 
+const axiosInstance = axios.create({
+  baseURL : process.env.REACT_APP_API_URL,
+});
+
 const PaymentPage: React.FC = () => {
   const [transactionsList, setTransactionsList] = useState<TransactionsTypes[]>(
     []
@@ -29,8 +34,8 @@ const PaymentPage: React.FC = () => {
 
   // Fetch transaction
   useEffect(() => {
-    fetch(`${configs.proxy}/transactions.json`)
-      .then((res) => res.json())
+    axiosInstance.get(`${configs.proxy}/transactions.json`)
+      .then((res) => res.data)
       .then(({ data }) => {
         setTransactionsList(data);
       });

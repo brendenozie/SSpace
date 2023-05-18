@@ -11,6 +11,7 @@ import TotalSalesIcon from "../assets/images/sales.svg";
 import StoreIcon from "../assets/images/store.svg";
 import configs from "../configs.json";
 import { AuthContext } from "../contexts/AuthContext";
+import axios from "axios";
 
 const OrderedProductPreview = React.lazy(
   () => import("../components/products/OrderedProductPreview")
@@ -42,7 +43,9 @@ const DashboardPage: React.FC = () => {
   const [totalOrderCount, setTotalOrderCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
   const [productCount, setProductCount] = useState(0);
-
+  const axiosInstance = axios.create({
+    baseURL : process.env.REACT_APP_API_URL,
+ });
 
   const { authDetails } = useContext(AuthContext);
   const[activeTab, setActiveTab] = useState("pending");
@@ -53,8 +56,8 @@ const DashboardPage: React.FC = () => {
 
   // Fetch ordered products
   useEffect(() => {
-    fetch(`/orders/statsorder?status=${activeTab.toLowerCase()}`)
-      .then((res) => res.json())
+    axiosInstance.get(`/orders/statsorder?status=${activeTab.toLowerCase()}`)
+      .then((res) => res.data)
       .then(({ order }) => {
         steOrderedProductList(order);
       });
